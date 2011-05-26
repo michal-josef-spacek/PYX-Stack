@@ -24,7 +24,7 @@ xml
 END
 stdout_is(
 	sub {
-		$obj->parse_file($data_dir->file('example8.pyx')->s);
+		$obj->parse_file($data_dir->file('ex1.pyx')->s);
 		return;
 	},
 	$right_ret,
