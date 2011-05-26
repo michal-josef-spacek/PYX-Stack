@@ -9,7 +9,6 @@ my $data_dir = File::Object->new->up->dir('data');
 # Include helpers.
 do File::Object->new->up->file('get_stdout.inc')->s;
 
-print "Testing: parse_file() method.\n";
 my $obj = PYX::Stack->new(
 	'verbose' => 1,
 );
