@@ -14,7 +14,7 @@ if (@ARGV < 1) {
 	print STDERR "\t-\t\tprocess on stdin\n";
 	exit 1;
 }
-my $arg = $ARGV[0];
+my $filename_or_stdin = $ARGV[0];
 
 # PYX::Stack object.
 my $stack = PYX::Stack->new(
@@ -22,10 +22,10 @@ my $stack = PYX::Stack->new(
 );
 
 # Parse from stdin.
-if ($arg eq '-') {
+if ($filename_or_stdin eq '-') {
 	$stack->parse_handler(\*STDIN);
 
 # Parse file.
 } else {
-	$stack->parse_file($arg);
+	$stack->parse_file($filename_or_stdin);
 }
