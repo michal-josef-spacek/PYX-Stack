@@ -9,9 +9,9 @@ use PYX::Stack;
 
 # Arguments.
 if (@ARGV < 1) {
-	print "Usage: $0 [filename] [-]\n";
-	print "\tfilename\tprocess on filename\n";
-	print "\t-\t\tprocess on stdin\n";
+	print STDERR "Usage: $0 [filename] [-]\n";
+	print STDERR "\tfilename\tprocess on filename\n";
+	print STDERR "\t-\t\tprocess on stdin\n";
 	exit 1;
 }
 my $arg = $ARGV[0];
