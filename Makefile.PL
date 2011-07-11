@@ -23,7 +23,7 @@ WriteMakefile(
 		'bin/pyx_stack',
 	],
 	'LICENSE' => 'bsd',
-	'NAME' => 'PYX',
+	'NAME' => 'PYX::Stack',
 	'PREREQ_PM' => {
 		'Class::Utils' => 0.01,
 		'Error::Pure' => 0.01,
