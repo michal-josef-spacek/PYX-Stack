@@ -5,23 +5,24 @@ SYNOPSIS
     TODO
 
 METHODS
-    new(%parameters)
+    "new(%parameters)"
              Constructor.
 
-            *       output_handler
+            *       "output_handler"
 
                     TODO
 
-            *       verbose
+            *       "verbose"
 
                     TODO
 
-    parse() TODO
-
-    parse_file()
+    "parse()"
             TODO
 
-    parse_handler()
+    "parse_file()"
+            TODO
+
+    "parse_handler()"
             TODO
 
 ERRORS

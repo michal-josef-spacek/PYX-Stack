@@ -112,31 +112,31 @@ TODO
 
 =over 8
 
-=item B<new(%parameters)>
+=item C<new(%parameters)>
 
  Constructor.
 
 =over 8
 
-=item * B<output_handler>
+=item * C<output_handler>
 
 TODO
 
-=item * B<verbose>
+=item * C<verbose>
 
 TODO
 
 =back
 
-=item B<parse()>
+=item C<parse()>
 
 TODO
 
-=item B<parse_file()>
+=item C<parse_file()>
 
 TODO
 
-=item B<parse_handler()>
+=item C<parse_handler()>
 
 TODO
 
