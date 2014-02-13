@@ -3,34 +3,32 @@ use strict;
 use warnings;
 
 # Modules.
-use ExtUtils::MakeMaker;
+use inc::Module::Install;
 
 # Definition.
-WriteMakefile(
-	'AUTHOR' => 'Michal Špaček <skim@cpan.org>',
-	'BUILD_REQUIRES' => {
-		'English' => 0,
-		'File::Object' => 0,
-		'Test::More' => 0,
-		'Test::Output' => 0,
-		'Test::Pod' => 0,
-		'Test::Pod::Coverage' => 0,
-	},
-	'CONFIGURE_REQUIRES' => {
-		'ExtUtils::MakeMaker' => 0,
-	},
-	'EXE_FILES' => [
-		'bin/pyx_stack',
-	],
-	'LICENSE' => 'bsd',
-	'NAME' => 'PYX::Stack',
-	'PREREQ_PM' => {
-		'Class::Utils' => 0.01,
-		'Error::Pure' => 0.01,
-		'PYX::Parser' => 0.01,
-	},
-	'VERSION_FROM' => 'Stack.pm',
-	'test' => {
-		'TESTS' => 't/PYX::Stack/*.t',
-	},
-);
+abstract 'TODO';
+author 'Michal Špaček <skim@cpan.org>';
+install_script 'bin/pyx_stack';
+license 'bsd';
+name 'PYX-Stack';
+readme_from 'Stack.pm';
+requires 'Class::Utils' => 0.05;
+requires 'Error::Pure' => 0.15;
+requires 'PYX::Parser' => 0.01;
+requires 'perl' => '5.6.2';
+resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
+	'?Name=PYX-Stack';
+resources 'homepage' => 'https://github.com/tupinek/PYX-Stack';
+resources 'repository' => 'git://github.com/tupinek/PYX-Stack';
+test_requires 'English' => 0;
+test_requires 'File::Object' => 0.07;
+test_requires 'Test::More' => 0;
+test_requires 'Test::NoWarnings' => 0;
+test_requires 'Test::Output' => 1.02;
+test_requires 'Test::Pod' => 0;
+test_requires 'Test::Pod::Coverage' => 0;
+tests_recursive;
+version '0.01';
+
+# Run.
+WriteAll();
