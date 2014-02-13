@@ -5,7 +5,8 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use PYX::Stack;
-use Test::More 'tests' => 3;
+use Test::More 'tests' => 4;
+use Test::NoWarnings;
 
 # Test.
 eval {

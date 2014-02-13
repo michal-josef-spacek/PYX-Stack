@@ -4,7 +4,8 @@ use warnings;
 
 # Modules.
 use PYX::Stack;
-use Test::More 'tests' => 1;
+use Test::More 'tests' => 2;
+use Test::NoWarnings;
 
 # Test.
 is($PYX::Stack::VERSION, 0.01, 'Version.');
