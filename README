@@ -49,7 +49,7 @@ DEPENDENCIES
     Class::Utils, Error::Pure, PYX::Parser.
 
 SEE ALSO
-    TODO
+    App::PYX::Stack.
 
 AUTHOR
     Michal Špaček skim@cpan.org.

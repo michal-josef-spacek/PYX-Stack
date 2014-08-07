@@ -172,7 +172,7 @@ L<PYX::Parser>.
 
 =head1 SEE ALSO
 
-TODO
+L<App::PYX::Stack>.
 
 =head1 AUTHOR
 
