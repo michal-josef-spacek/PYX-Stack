@@ -1,4 +1,3 @@
-bin/pyx_stack
 Changes
 inc/Module/Install.pm
 inc/Module/Install/Base.pm

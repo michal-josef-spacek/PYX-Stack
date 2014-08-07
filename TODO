@@ -1,8 +1,10 @@
 TODO
 ====
-1. U pyx_stack udelat mod, kdy vedle stacku zobrazim i informace, abych mohl pak
-   provadet filtry.
-2.
+2. 
 
 Applied
 =======
+1. U pyx_stack udelat mod, kdy vedle stacku zobrazim i informace, abych mohl pak
+   provadet filtry.
+Presunuto do App::PYX::Stack.
+NONE [20140807] skim

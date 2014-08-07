@@ -8,7 +8,6 @@ use inc::Module::Install;
 # Definition.
 abstract 'TODO';
 author 'Michal Špaček <skim@cpan.org>';
-install_script 'bin/pyx_stack';
 license 'bsd';
 name 'PYX-Stack';
 readme_from 'Stack.pm';
