@@ -9,7 +9,7 @@ use Error::Pure;
 use PYX::Stack;
 
 # Error output.
-$Error::Pure::TYPE = 'Print';
+$Error::Pure::TYPE = 'PrintVar';
 
 # Example data.
 my $pyx = <<'END';

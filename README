@@ -96,7 +96,7 @@ EXAMPLE2
      use PYX::Stack;
 
      # Error output.
-     $Error::Pure::TYPE = 'Print';
+     $Error::Pure::TYPE = 'PrintVar';
 
      # Example data.
      my $pyx = <<'END';
