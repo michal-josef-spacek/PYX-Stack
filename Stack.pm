@@ -33,6 +33,7 @@ sub new {
 	# PYX::Parser object.
 	$self->{'pyx_parser'} = PYX::Parser->new(
 		'end_tag' => \&_end_tag,
+		'final' => \&_final,
 		'output_handler' => $self->{'output_handler'},
 		'start_tag' => \&_start_tag,
 	);
@@ -77,6 +78,15 @@ sub _end_tag {
 	}
 	if ($VERBOSE && @{$STACK} > 0) {
 		print {$out} join('/', @{$STACK}), "\n";
+	}
+	return;
+}
+
+# Finalize.
+sub _final {
+	my $pyx_parser_obj = shift;
+	if (@{$STACK} > 0) {
+		err 'Stack has some elements.';
 	}
 	return;
 }
