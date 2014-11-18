@@ -75,7 +75,7 @@ sub _end_tag {
 	if ($STACK->[-1] eq $tag) {
 		pop @{$STACK};
 	}
-	if ($VERBOSE && $#{$STACK} > -1) {
+	if ($VERBOSE && @{$STACK} > 0) {
 		print {$out} join('/', @{$STACK}), "\n";
 	}
 	return;
