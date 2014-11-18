@@ -112,11 +112,15 @@ __END__
 
 =head1 NAME
 
-PYX::Stack - TODO
+PYX::Stack - Processing PYX data or file and process element stack.
 
 =head1 SYNOPSIS
 
-TODO
+ use PYX::Stack;
+ my $obj = PYX::Stack->new(%parameters);
+ $obj->parse($pyx, $out);
+ $obj->parse_file($input_file, $out);
+ $obj->parse_handle($input_file_handler, $out);
 
 =head1 METHODS
 
@@ -130,37 +134,53 @@ TODO
 
 =item * C<output_handler>
 
-TODO
+ Output handler.
+ Default value is \*STDOUT.
 
 =item * C<verbose>
 
-TODO
+ Verbose flag.
+ If set, each start element prints information to 'output_handler'.
+ Default value is 0.
 
 =back
 
-=item C<parse()>
+=item C<parse($pyx[, $out])>
 
-TODO
+ Parse PYX text or array of PYX text.
+ If $out not present, use 'output_handler'.
+ Returns undef.
 
-=item C<parse_file()>
+=item C<parse_file($input_file[, $out])>
 
-TODO
+ Parse file with PYX data.
+ If $out not present, use 'output_handler'.
+ Returns undef.
 
-=item C<parse_handler()>
+=item C<parse_handler($input_file_handler[, $out])>
 
-TODO
+ Parse PYX handler.
+ If $out not present, use 'output_handler'.
+ Returns undef.
 
 =back
 
 =head1 ERRORS
 
- Mine:
-   TODO
+ new():
+         From Class::Utils::set_params():
+                 Unknown parameter '%s'.
 
- From Class::Utils::set_params():
-   Unknown parameter '%s'.
+ parse():
+         Stack has some elements.
 
-=head1 EXAMPLE
+ parse_file():
+         Stack has some elements.
+
+ parse_handler():
+         Stack has some elements.
+
+=head1 EXAMPLE1
 
  # Pragmas.
  use strict;
@@ -169,10 +189,63 @@ TODO
  # Modules.
  use PYX::Stack;
 
+ # Example data.
+ my $pyx = <<'END';
+ (begin
+ (middle
+ (end
+ -data
+ )end
+ )middle
+ )begin
+ END
+
  # PYX::Stack object.
- my $pyx = PYX::Stack->new(
-         TODO
+ my $obj = PYX::Stack->new(
+         'verbose' => 1,
  );
+
+ # Parse.
+ $obj->parse($pyx);
+
+ # Output:
+ # begin
+ # begin/middle
+ # begin/middle/end
+ # begin/middle
+ # begin
+
+=head1 EXAMPLE2
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Error::Pure;
+ use PYX::Stack;
+
+ # Error output.
+ $Error::Pure::TYPE = 'Print';
+
+ # Example data.
+ my $pyx = <<'END';
+ (begin
+ (middle
+ (end
+ -data
+ )middle
+ )begin
+ END
+
+ # PYX::Stack object.
+ my $obj = PYX::Stack->new;
+
+ # Parse.
+ $obj->parse($pyx);
+
+ # Output:
+ # PYX::Stack: Stack has some elements.
 
 =head1 DEPENDENCIES
 
