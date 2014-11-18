@@ -68,18 +68,7 @@ sub parse_handler {
 	return;
 }
 
-# Process tag.
-sub _start_tag {
-	my ($pyx_parser_obj, $tag) = @_;
-	my $out = $pyx_parser_obj->{'output_handler'};
-	push @{$STACK}, $tag;
-	if ($VERBOSE) {
-		print {$out} join('/', @{$STACK}), "\n";
-	}
-	return;
-}
-
-# Process tag.
+# End of tag.
 sub _end_tag {
 	my ($pyx_parser_obj, $tag) = @_;
 	my $out = $pyx_parser_obj->{'output_handler'};
@@ -87,6 +76,17 @@ sub _end_tag {
 		pop @{$STACK};
 	}
 	if ($VERBOSE && $#{$STACK} > -1) {
+		print {$out} join('/', @{$STACK}), "\n";
+	}
+	return;
+}
+
+# Start of tag.
+sub _start_tag {
+	my ($pyx_parser_obj, $tag) = @_;
+	my $out = $pyx_parser_obj->{'output_handler'};
+	push @{$STACK}, $tag;
+	if ($VERBOSE) {
 		print {$out} join('/', @{$STACK}), "\n";
 	}
 	return;
