@@ -56,8 +56,8 @@ sub parse {
 
 # Parse file with pyx text.
 sub parse_file {
-	my ($self, $file) = @_;
-	$self->{'pyx_parser'}->parse_file($file);
+	my ($self, $file, $out) = @_;
+	$self->{'pyx_parser'}->parse_file($file, $out);
 	return;
 }
 
