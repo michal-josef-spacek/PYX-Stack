@@ -12,6 +12,12 @@ METHODS
     "new(%parameters)"
              Constructor.
 
+            *       "bad_end"
+
+                     Check bad end of tag.
+                     If set, print error on unopened end of element.
+                     Default value is 0.
+
             *       "output_handler"
 
                      Output handler.
@@ -44,12 +50,18 @@ ERRORS
                      Unknown parameter '%s'.
 
      parse():
+             Bad end of element.
+                     Element: %s
              Stack has some elements.
 
      parse_file():
+             Bad end of element.
+                     Element: %s
              Stack has some elements.
 
      parse_handler():
+             Bad end of element.
+                     Element: %s
              Stack has some elements.
 
 EXAMPLE1
@@ -116,6 +128,40 @@ EXAMPLE2
 
      # Output:
      # PYX::Stack: Stack has some elements.
+
+EXAMPLE3
+     # Pragmas.
+     use strict;
+     use warnings;
+
+     # Modules.
+     use Error::Pure;
+     use PYX::Stack;
+
+     # Error output.
+     $Error::Pure::TYPE = 'PrintVar';
+
+     # Example data.
+     my $pyx = <<'END';
+     (begin
+     (middle
+     -data
+     )end
+     )middle
+     )begin
+     END
+
+     # PYX::Stack object.
+     my $obj = PYX::Stack->new(
+             'bad_end' => 1,
+     );
+
+     # Parse.
+     $obj->parse($pyx);
+
+     # Output:
+     # PYX::Stack: Bad end of element.
+     # Element: end
 
 DEPENDENCIES
     Class::Utils, Error::Pure, PYX::Parser.

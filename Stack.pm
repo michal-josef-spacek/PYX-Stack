@@ -13,6 +13,7 @@ use PYX::Parser;
 our $VERSION = 0.01;
 
 # Global variables.
+our $BAD_END;
 our $STACK;
 our $VERBOSE;
 
@@ -20,6 +21,9 @@ our $VERBOSE;
 sub new {
 	my ($class, @params) = @_;
 	my $self = bless {}, $class;
+
+	# Check bad end of tag.
+	$self->{'bad_end'} = 0;
 
 	# Output handler.
 	$self->{'output_handler'} = \*STDOUT;
@@ -37,6 +41,9 @@ sub new {
 		'output_handler' => $self->{'output_handler'},
 		'start_tag' => \&_start_tag,
 	);
+
+	# Bad end option.
+	$BAD_END = $self->{'bad_end'};
 
 	# Tag values.
 	$STACK = [];
@@ -75,6 +82,9 @@ sub _end_tag {
 	my $out = $pyx_parser_obj->{'output_handler'};
 	if ($STACK->[-1] eq $tag) {
 		pop @{$STACK};
+	} elsif ($BAD_END) {
+		err 'Bad end of element.',
+			'Element', $tag;
 	}
 	if ($VERBOSE && @{$STACK} > 0) {
 		print {$out} join('/', @{$STACK}), "\n";
@@ -132,6 +142,12 @@ PYX::Stack - Processing PYX data or file and process element stack.
 
 =over 8
 
+=item * C<bad_end>
+
+ Check bad end of tag.
+ If set, print error on unopened end of element.
+ Default value is 0.
+
 =item * C<output_handler>
 
  Output handler.
@@ -172,12 +188,18 @@ PYX::Stack - Processing PYX data or file and process element stack.
                  Unknown parameter '%s'.
 
  parse():
+         Bad end of element.
+                 Element: %s
          Stack has some elements.
 
  parse_file():
+         Bad end of element.
+                 Element: %s
          Stack has some elements.
 
  parse_handler():
+         Bad end of element.
+                 Element: %s
          Stack has some elements.
 
 =head1 EXAMPLE1
@@ -226,7 +248,7 @@ PYX::Stack - Processing PYX data or file and process element stack.
  use PYX::Stack;
 
  # Error output.
- $Error::Pure::TYPE = 'Print';
+ $Error::Pure::TYPE = 'PrintVar';
 
  # Example data.
  my $pyx = <<'END';
@@ -246,6 +268,41 @@ PYX::Stack - Processing PYX data or file and process element stack.
 
  # Output:
  # PYX::Stack: Stack has some elements.
+
+=head1 EXAMPLE3
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Error::Pure;
+ use PYX::Stack;
+
+ # Error output.
+ $Error::Pure::TYPE = 'PrintVar';
+
+ # Example data.
+ my $pyx = <<'END';
+ (begin
+ (middle
+ -data
+ )end
+ )middle
+ )begin
+ END
+
+ # PYX::Stack object.
+ my $obj = PYX::Stack->new(
+         'bad_end' => 1,
+ );
+
+ # Parse.
+ $obj->parse($pyx);
+
+ # Output:
+ # PYX::Stack: Bad end of element.
+ # Element: end
 
 =head1 DEPENDENCIES
 
