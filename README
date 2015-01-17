@@ -170,7 +170,9 @@ SEE ALSO
     App::PYX::Stack.
 
 AUTHOR
-    Michal Špaček skim@cpan.org.
+    Michal Špaček <mailto:skim@cpan.org>
+
+    <http://skim.cz>
 
 LICENSE AND COPYRIGHT
     BSD 2-Clause License
