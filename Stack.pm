@@ -17,7 +17,7 @@ sub new {
 	my ($class, @params) = @_;
 	my $self = bless {}, $class;
 
-	# Check bad end of tag.
+	# Check bad end of element.
 	$self->{'bad_end'} = 0;
 
 	# Output handler.
@@ -31,15 +31,17 @@ sub new {
 
 	# PYX::Parser object.
 	$self->{'pyx_parser'} = PYX::Parser->new(
-		'end_tag' => \&_end_tag,
-		'final' => \&_final,
+		'callbacks' => {
+			'end_element' => \&_end_element,
+			'start_element' => \&_start_element,
+			'final' => \&_final,
+		},
 		'non_parser_options' => {
 			'bad_end' => $self->{'bad_end'},
 			'stack' => [],
 			'verbose' => $self->{'verbose'},
 		},
 		'output_handler' => $self->{'output_handler'},
-		'start_tag' => \&_start_tag,
 	);
 
 	# Object.
@@ -67,16 +69,16 @@ sub parse_handler {
 	return;
 }
 
-# End of tag.
-sub _end_tag {
-	my ($pyx_parser_obj, $tag) = @_;
+# End of element.
+sub _end_element {
+	my ($pyx_parser_obj, $elem) = @_;
 	my $stack_ar = $pyx_parser_obj->{'non_parser_options'}->{'stack'};
 	my $out = $pyx_parser_obj->{'output_handler'};
-	if ($stack_ar->[-1] eq $tag) {
+	if ($stack_ar->[-1] eq $elem) {
 		pop @{$stack_ar};
 	} elsif ($pyx_parser_obj->{'non_parser_options'}->{'bad_end'}) {
 		err 'Bad end of element.',
-			'Element', $tag;
+			'Element', $elem;
 	}
 	if ($pyx_parser_obj->{'non_parser_options'}->{'verbose'}
 		&& @{$stack_ar} > 0) {
@@ -96,12 +98,12 @@ sub _final {
 	return;
 }
 
-# Start of tag.
-sub _start_tag {
-	my ($pyx_parser_obj, $tag) = @_;
+# Start of element.
+sub _start_element {
+	my ($pyx_parser_obj, $elem) = @_;
 	my $stack_ar = $pyx_parser_obj->{'non_parser_options'}->{'stack'};
 	my $out = $pyx_parser_obj->{'output_handler'};
-	push @{$stack_ar}, $tag;
+	push @{$stack_ar}, $elem;
 	if ($pyx_parser_obj->{'non_parser_options'}->{'verbose'}) {
 		print {$out} join('/', @{$stack_ar}), "\n";
 	}
@@ -140,7 +142,7 @@ PYX::Stack - Processing PYX data or file and process element stack.
 
 =item * C<bad_end>
 
- Check bad end of tag.
+ Check bad end of element.
  If set, print error on unopened end of element.
  Default value is 0.
 

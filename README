@@ -14,7 +14,7 @@ METHODS
 
             *       "bad_end"
 
-                     Check bad end of tag.
+                     Check bad end of element.
                      If set, print error on unopened end of element.
                      Default value is 0.
 
