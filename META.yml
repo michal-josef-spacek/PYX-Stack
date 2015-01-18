@@ -1,5 +1,5 @@
 ---
-abstract: TODO
+abstract: 'Processing PYX data or file and process element stack.'
 author:
   - 'Michal Spacek <skim@cpan.org>'
 build_requires:

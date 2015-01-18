@@ -1,4 +1,5 @@
 0.02
+ - Fix abstract in Makefile.PL.
 
 0.01 2015-01-18T17:51:43+01:00
  - First version.

@@ -6,7 +6,7 @@ use warnings;
 use inc::Module::Install;
 
 # Definition.
-abstract 'TODO';
+abstract 'Processing PYX data or file and process element stack.';
 author 'Michal Spacek <skim@cpan.org>';
 license 'bsd';
 name 'PYX-Stack';
