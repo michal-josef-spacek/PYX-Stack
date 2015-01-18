@@ -13,7 +13,7 @@ name 'PYX-Stack';
 readme_from 'Stack.pm';
 requires 'Class::Utils' => 0.05;
 requires 'Error::Pure' => 0.15;
-requires 'PYX::Parser' => 0.01;
+requires 'PYX::Parser' => 0.02;
 requires 'perl' => '5.6.0';
 resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
 	'?Name=PYX-Stack';

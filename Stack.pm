@@ -12,11 +12,6 @@ use PYX::Parser;
 # Version.
 our $VERSION = 0.01;
 
-# Global variables.
-our $BAD_END;
-our $STACK;
-our $VERBOSE;
-
 # Constructor.
 sub new {
 	my ($class, @params) = @_;
@@ -38,18 +33,14 @@ sub new {
 	$self->{'pyx_parser'} = PYX::Parser->new(
 		'end_tag' => \&_end_tag,
 		'final' => \&_final,
+		'non_parser_options' => {
+			'bad_end' => $self->{'bad_end'},
+			'stack' => [],
+			'verbose' => $self->{'verbose'},
+		},
 		'output_handler' => $self->{'output_handler'},
 		'start_tag' => \&_start_tag,
 	);
-
-	# Bad end option.
-	$BAD_END = $self->{'bad_end'};
-
-	# Tag values.
-	$STACK = [];
-
-	# Verbose.
-	$VERBOSE = $self->{'verbose'};
 
 	# Object.
 	return $self;
@@ -79,15 +70,18 @@ sub parse_handler {
 # End of tag.
 sub _end_tag {
 	my ($pyx_parser_obj, $tag) = @_;
+	my $stack_ar = $pyx_parser_obj->{'non_parser_options'}->{'stack'};
 	my $out = $pyx_parser_obj->{'output_handler'};
-	if ($STACK->[-1] eq $tag) {
-		pop @{$STACK};
-	} elsif ($BAD_END) {
+	if ($stack_ar->[-1] eq $tag) {
+		pop @{$stack_ar};
+	} elsif ($pyx_parser_obj->{'non_parser_options'}->{'bad_end'}) {
 		err 'Bad end of element.',
 			'Element', $tag;
 	}
-	if ($VERBOSE && @{$STACK} > 0) {
-		print {$out} join('/', @{$STACK}), "\n";
+	if ($pyx_parser_obj->{'non_parser_options'}->{'verbose'}
+		&& @{$stack_ar} > 0) {
+
+		print {$out} join('/', @{$stack_ar}), "\n";
 	}
 	return;
 }
@@ -95,7 +89,8 @@ sub _end_tag {
 # Finalize.
 sub _final {
 	my $pyx_parser_obj = shift;
-	if (@{$STACK} > 0) {
+	my $stack_ar = $pyx_parser_obj->{'non_parser_options'}->{'stack'};
+	if (@{$stack_ar} > 0) {
 		err 'Stack has some elements.';
 	}
 	return;
@@ -104,10 +99,11 @@ sub _final {
 # Start of tag.
 sub _start_tag {
 	my ($pyx_parser_obj, $tag) = @_;
+	my $stack_ar = $pyx_parser_obj->{'non_parser_options'}->{'stack'};
 	my $out = $pyx_parser_obj->{'output_handler'};
-	push @{$STACK}, $tag;
-	if ($VERBOSE) {
-		print {$out} join('/', @{$STACK}), "\n";
+	push @{$stack_ar}, $tag;
+	if ($pyx_parser_obj->{'non_parser_options'}->{'verbose'}) {
+		print {$out} join('/', @{$stack_ar}), "\n";
 	}
 	return;
 }
