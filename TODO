@@ -1,6 +1,5 @@
 TODO
 ====
-2.  Presunout globalni promenne do PYX::Parser.
 3.
 
 Applied
@@ -9,3 +8,6 @@ Applied
    provadet filtry.
 Presunuto do App::PYX::Stack.
 NONE [20140807] skim
+
+2.  Presunout globalni promenne do PYX::Parser.
+OK [20150118] skim
