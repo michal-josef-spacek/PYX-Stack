@@ -1,5 +1,6 @@
 0.03
  - Add PYX::GraphViz, PYX::Hist and PYX::Parser to SEE ALSO section in doc.
+ - Add comments to tests.
  - Rename 'pyx_parser' parameter to internal '_pyx_parser' name.
 
 0.02 2015-01-18T19:02:42+01:00

@@ -12,13 +12,15 @@ use Test::NoWarnings;
 eval {
 	PYX::Stack->new('');
 };
-is($EVAL_ERROR, "Unknown parameter ''.\n");
+is($EVAL_ERROR, "Unknown parameter ''.\n",
+	"Unknown parameter ''.");
 
 # Test.
 eval {
 	PYX::Stack->new('something' => 'value');
 };
-is($EVAL_ERROR, "Unknown parameter 'something'.\n");
+is($EVAL_ERROR, "Unknown parameter 'something'.\n",
+	"Unknown parameter 'something'.");
 
 # Test.
 my $obj = PYX::Stack->new;
