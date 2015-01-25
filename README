@@ -169,6 +169,9 @@ DEPENDENCIES
 SEE ALSO
     App::PYX::Stack, PYX::GraphViz, PYX::Hist, PYX::Parser.
 
+REPOSITORY
+    <https://github.com/tupinek/Error-Stack>
+
 AUTHOR
     Michal Špaček <mailto:skim@cpan.org>
 

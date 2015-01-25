@@ -315,6 +315,10 @@ L<PYX::GraphViz>,
 L<PYX::Hist>,
 L<PYX::Parser>.
 
+=head1 REPOSITORY
+
+L<https://github.com/tupinek/Error-Stack>
+
 =head1 AUTHOR
 
 Michal Špaček L<mailto:skim@cpan.org>
