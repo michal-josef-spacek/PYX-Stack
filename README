@@ -170,7 +170,7 @@ SEE ALSO
     App::PYX::Stack, PYX::GraphViz, PYX::Hist, PYX::Parser.
 
 REPOSITORY
-    <https://github.com/tupinek/Error-Stack>
+    <https://github.com/tupinek/PYX-Stack>
 
 AUTHOR
     Michal Špaček <mailto:skim@cpan.org>

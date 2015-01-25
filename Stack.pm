@@ -317,7 +317,7 @@ L<PYX::Parser>.
 
 =head1 REPOSITORY
 
-L<https://github.com/tupinek/Error-Stack>
+L<https://github.com/tupinek/PYX-Stack>
 
 =head1 AUTHOR
 
