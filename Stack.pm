@@ -310,7 +310,10 @@ L<PYX::Parser>.
 
 =head1 SEE ALSO
 
-L<App::PYX::Stack>.
+L<App::PYX::Stack>,
+L<PYX::GraphViz>,
+L<PYX::Hist>,
+L<PYX::Parser>.
 
 =head1 AUTHOR
 

@@ -167,7 +167,7 @@ DEPENDENCIES
     Class::Utils, Error::Pure, PYX::Parser.
 
 SEE ALSO
-    App::PYX::Stack.
+    App::PYX::Stack, PYX::GraphViz, PYX::Hist, PYX::Parser.
 
 AUTHOR
     Michal Špaček <mailto:skim@cpan.org>
