@@ -30,7 +30,7 @@ sub new {
 	set_params($self, @params);
 
 	# PYX::Parser object.
-	$self->{'pyx_parser'} = PYX::Parser->new(
+	$self->{'_pyx_parser'} = PYX::Parser->new(
 		'callbacks' => {
 			'end_element' => \&_end_element,
 			'start_element' => \&_start_element,
@@ -51,21 +51,21 @@ sub new {
 # Parse pyx text or array of pyx text.
 sub parse {
 	my ($self, $pyx, $out) = @_;
-	$self->{'pyx_parser'}->parse($pyx, $out);
+	$self->{'_pyx_parser'}->parse($pyx, $out);
 	return;
 }
 
 # Parse file with pyx text.
 sub parse_file {
 	my ($self, $file, $out) = @_;
-	$self->{'pyx_parser'}->parse_file($file, $out);
+	$self->{'_pyx_parser'}->parse_file($file, $out);
 	return;
 }
 
 # Parse from handler.
 sub parse_handler {
 	my ($self, $input_file_handler, $out) = @_;
-	$self->{'pyx_parser'}->parse_handler($input_file_handler, $out);
+	$self->{'_pyx_parser'}->parse_handler($input_file_handler, $out);
 	return;
 }
 
