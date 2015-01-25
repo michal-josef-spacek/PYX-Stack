@@ -3,6 +3,7 @@
  - Add REPOSITORY section to doc.
  - Add comments to tests.
  - Rename 'pyx_parser' parameter to internal '_pyx_parser' name.
+ - Rename 05-parse.t test file to right 05-parse_file.t .
 
 0.02 2015-01-18T19:02:42+01:00
  - Fix abstract in Makefile.PL.
