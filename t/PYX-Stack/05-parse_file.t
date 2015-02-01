@@ -3,9 +3,11 @@ use strict;
 use warnings;
 
 # Modules.
+use English;
+use Error::Pure::Utils qw(clean);
 use File::Object;
 use PYX::Stack;
-use Test::More 'tests' => 2;
+use Test::More 'tests' => 5;
 use Test::NoWarnings;
 use Test::Output;
 
@@ -31,3 +33,30 @@ stdout_is(
 	$right_ret,
 	'Simple stack tree.',
 );
+
+# Test.
+$obj = PYX::Stack->new;
+eval {
+	$obj->parse_file($data_dir->file('ex2.pyx')->s);
+};
+is($EVAL_ERROR, "Stack has some elements.\n", 'Stack has some elements.');
+clean();
+
+# Test.
+$obj = PYX::Stack->new(
+	'bad_end' => 1,
+);
+eval {
+	$obj->parse_file($data_dir->file('ex3.pyx')->s);
+};
+is($EVAL_ERROR, "Bad end of element.\n", 'Bad end of element.');
+clean();
+
+# Test.
+# XXX This is a bit problematic.
+$obj = PYX::Stack->new;
+eval {
+	$obj->parse_file($data_dir->file('ex3.pyx')->s);
+};
+is($EVAL_ERROR, "Stack has some elements.\n", 'Stack has some elements.');
+clean();

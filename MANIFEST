@@ -20,6 +20,8 @@ README
 SIGNATURE
 Stack.pm
 t/data/ex1.pyx
+t/data/ex2.pyx
+t/data/ex3.pyx
 t/PYX-Stack/00-use.t
 t/PYX-Stack/01-version.t
 t/PYX-Stack/02-pod_coverage.t

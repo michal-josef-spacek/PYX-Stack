@@ -2,6 +2,7 @@
  - Add PYX::GraphViz, PYX::Hist and PYX::Parser to SEE ALSO section in doc.
  - Add REPOSITORY section to doc.
  - Add comments to tests.
+ - Add tests.
  - Rename 'pyx_parser' parameter to internal '_pyx_parser' name.
  - Rename 05-parse.t test file to right 05-parse_file.t .
  - Update SEE ALSO section to reality.
