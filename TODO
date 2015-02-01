@@ -1,6 +1,5 @@
 TODO
 ====
-3. Dodelat testy.
 4. Kdyz zparsuji jeden soubor a pak druhy, nebylo by dobre cistit interni
    promenne?
 5. Resit nekonzistenci erroru v testech a kodu.
@@ -15,3 +14,6 @@ NONE [20140807] skim
 
 2.  Presunout globalni promenne do PYX::Parser.
 OK [20150118] skim
+
+3. Dodelat testy.
+OK [20150201] skim
