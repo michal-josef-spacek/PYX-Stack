@@ -73,7 +73,6 @@ sub parse_handler {
 sub _end_element {
 	my ($pyx_parser_obj, $elem) = @_;
 	my $stack_ar = $pyx_parser_obj->{'non_parser_options'}->{'stack'};
-	my $out = $pyx_parser_obj->{'output_handler'};
 	if ($stack_ar->[-1] eq $elem) {
 		pop @{$stack_ar};
 	} elsif ($pyx_parser_obj->{'non_parser_options'}->{'bad_end'}) {
@@ -83,6 +82,7 @@ sub _end_element {
 	if ($pyx_parser_obj->{'non_parser_options'}->{'verbose'}
 		&& @{$stack_ar} > 0) {
 
+		my $out = $pyx_parser_obj->{'output_handler'};
 		print {$out} join('/', @{$stack_ar}), "\n";
 	}
 	return;
