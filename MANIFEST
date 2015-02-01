@@ -27,4 +27,6 @@ t/PYX-Stack/01-version.t
 t/PYX-Stack/02-pod_coverage.t
 t/PYX-Stack/03-pod.t
 t/PYX-Stack/04-new.t
-t/PYX-Stack/05-parse_file.t
+t/PYX-Stack/05-parse.t
+t/PYX-Stack/06-parse_file.t
+t/PYX-Stack/07-parse_handler.t
