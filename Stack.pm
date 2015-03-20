@@ -314,6 +314,7 @@ L<PYX>,
 L<PYX::GraphViz>,
 L<PYX::Hist>,
 L<PYX::Parser>,
+L<PYX::Sort>,
 L<PYX::Utils>,
 L<Task::PYX>.
 

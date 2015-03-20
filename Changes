@@ -1,4 +1,5 @@
 0.04
+ - Add PYX::Sort to SEE ALSO section in doc.
 
 0.03 2015-02-01T09:51:19+01:00
  - Add PYX::GraphViz, PYX::Hist and PYX::Parser to SEE ALSO section in doc.
