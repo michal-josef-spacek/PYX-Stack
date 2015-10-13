@@ -2,6 +2,7 @@
  - Add PYX::Sort to SEE ALSO section in doc.
  - Fix dependencies.
  - Improve SEE ALSO section in doc.
+ - Move author tests to xt/ directory.
  - Update Module::Install to 1.16 version.
 
 0.03 2015-02-01T09:51:19+01:00
