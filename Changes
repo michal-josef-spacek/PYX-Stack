@@ -1,5 +1,6 @@
 0.04
  - Add PYX::Sort to SEE ALSO section in doc.
+ - Fix dependencies.
  - Improve SEE ALSO section in doc.
  - Update Module::Install to 1.16 version.
 

@@ -12,7 +12,7 @@ license 'bsd';
 name 'PYX-Stack';
 readme_from 'Stack.pm';
 requires 'Class::Utils' => 0.05;
-requires 'Error::Pure' => 0.15;
+requires 'Error::Pure' => 0.22;
 requires 'PYX::Parser' => 0.02;
 requires 'perl' => '5.6.0';
 resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
@@ -20,6 +20,7 @@ resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
 resources 'homepage' => 'https://github.com/tupinek/PYX-Stack';
 resources 'repository' => 'git://github.com/tupinek/PYX-Stack';
 test_requires 'English' => 0;
+test_requires 'Error::Pure::Utils' => 0.22;
 test_requires 'File::Object' => 0.07;
 test_requires 'Test::More' => 0;
 test_requires 'Test::NoWarnings' => 0;
