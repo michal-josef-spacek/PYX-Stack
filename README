@@ -65,11 +65,9 @@ ERRORS
              Stack has some elements.
 
 EXAMPLE1
-     # Pragmas.
      use strict;
      use warnings;
 
-     # Modules.
      use PYX::Stack;
 
      # Example data.
@@ -99,11 +97,9 @@ EXAMPLE1
      # begin
 
 EXAMPLE2
-     # Pragmas.
      use strict;
      use warnings;
 
-     # Modules.
      use Error::Pure;
      use PYX::Stack;
 
@@ -130,11 +126,9 @@ EXAMPLE2
      # PYX::Stack: Stack has some elements.
 
 EXAMPLE3
-     # Pragmas.
      use strict;
      use warnings;
 
-     # Modules.
      use Error::Pure;
      use PYX::Stack;
 

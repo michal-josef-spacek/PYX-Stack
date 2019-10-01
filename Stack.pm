@@ -1,15 +1,12 @@
 package PYX::Stack;
 
-# Pragmas.
 use strict;
 use warnings;
 
-# Modules.
 use Class::Utils qw(set_params);
 use Error::Pure qw(err);
 use PYX::Parser;
 
-# Version.
 our $VERSION = 0.05;
 
 # Constructor.
@@ -202,11 +199,9 @@ PYX::Stack - Processing PYX data or file and process element stack.
 
 =head1 EXAMPLE1
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use PYX::Stack;
 
  # Example data.
@@ -237,11 +232,9 @@ PYX::Stack - Processing PYX data or file and process element stack.
 
 =head1 EXAMPLE2
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Error::Pure;
  use PYX::Stack;
 
@@ -269,11 +262,9 @@ PYX::Stack - Processing PYX data or file and process element stack.
 
 =head1 EXAMPLE3
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Error::Pure;
  use PYX::Stack;
 
