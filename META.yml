@@ -1,7 +1,7 @@
 ---
 abstract: 'Processing PYX data or file and process element stack.'
 author:
-  - 'Michal Spacek <skim@cpan.org>'
+  - 'Michal Josef Spacek <skim@cpan.org>'
 build_requires:
   English: 0
   Error::Pure::Utils: 0.22
