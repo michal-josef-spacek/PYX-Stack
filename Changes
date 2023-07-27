@@ -1,6 +1,6 @@
 0.05
  - Fix INFO file.
- - Update Module::Install to 1.19 version.
+ - Update Module::Install to 1.21 version.
  - Update copyright years.
 
 0.04 2015-10-13T15:29:21+02:00
