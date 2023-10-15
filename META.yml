@@ -32,8 +32,8 @@ requires:
   PYX::Parser: 0.02
   perl: 5.6.0
 resources:
-  bugtracker: https://github.com/tupinek/PYX-Stack/issues
-  homepage: https://github.com/tupinek/PYX-Stack
+  bugtracker: https://github.com/michal-josef-spacek/PYX-Stack/issues
+  homepage: https://github.com/michal-josef-spacek/PYX-Stack
   license: http://opensource.org/licenses/bsd-license.php
-  repository: git://github.com/tupinek/PYX-Stack
+  repository: git://github.com/michal-josef-spacek/PYX-Stack
 version: '0.05'
