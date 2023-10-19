@@ -122,6 +122,7 @@ PYX::Stack - Processing PYX data or file and process element stack.
 =head1 SYNOPSIS
 
  use PYX::Stack;
+
  my $obj = PYX::Stack->new(%parameters);
  $obj->parse($pyx, $out);
  $obj->parse_file($input_file, $out);
