@@ -1,6 +1,7 @@
 0.06
  - Fix typo in doc.
  - Improve SYNOPSIS section in doc.
+ - Rename example files to better names.
  - Rewrite doc to use =head2.
 
 0.05 2023-10-15T17:00:40+02:00

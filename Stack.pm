@@ -212,6 +212,8 @@ Returns undef.
 
 =head1 EXAMPLE1
 
+=for comment filename=print_stack.pl
+
  use strict;
  use warnings;
 
@@ -245,6 +247,8 @@ Returns undef.
 
 =head1 EXAMPLE2
 
+=for comment filename=error1.pl
+
  use strict;
  use warnings;
 
@@ -274,6 +278,8 @@ Returns undef.
  # PYX::Stack: Stack has some elements.
 
 =head1 EXAMPLE3
+
+=for comment filename=error2.pl
 
  use strict;
  use warnings;
